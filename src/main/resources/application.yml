@@ -1,4 +1,8 @@
 spring:
+  # Configurações locais (credenciais de e-mail etc.) ficam em application-local.yml,
+  # na pasta do backend. Esse arquivo é opcional e está no .gitignore.
+  config:
+    import: "optional:file:./application-local.yml"
   datasource:
     url: jdbc:postgresql://localhost:5432/cactech_db
     username: postgres
@@ -31,7 +35,5 @@ app:
     from: "CacTech <nao-responda@cactech.com.br>"
 
 # E-mail (SMTP): sem configuração, os links de redefinição de senha aparecem no log.
-# Para enviar de verdade, defina as variáveis de ambiente antes de iniciar, por exemplo (Gmail):
-#   SPRING_MAIL_HOST=smtp.gmail.com  SPRING_MAIL_PORT=587
-#   SPRING_MAIL_USERNAME=sua-conta@gmail.com  SPRING_MAIL_PASSWORD=<senha de app>
-#   SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH=true  SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE=true
+# Para enviar de verdade, copie application-local.example.yml para application-local.yml
+# (na pasta do backend) e preencha as credenciais.

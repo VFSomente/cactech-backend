@@ -1,0 +1,10 @@
+# Build do Maven
+target/
+
+# Configuração local com credenciais (SMTP etc.) — nunca versionar
+application-local.yml
+
+# IDEs
+.idea/
+.vscode/
+*.iml
