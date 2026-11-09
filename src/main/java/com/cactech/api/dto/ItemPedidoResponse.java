@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 
 public class ItemPedidoResponse {
     private Long id;
+    private Long produtoId;
     private String nomeProduto;
     private Integer quantidade;
     private BigDecimal precoUnitario;
@@ -13,6 +14,7 @@ public class ItemPedidoResponse {
     public static ItemPedidoResponse fromEntity(ItemPedido itemPedido) {
         ItemPedidoResponse response = new ItemPedidoResponse();
         response.setId(itemPedido.getId());
+        response.setProdutoId(itemPedido.getProdutoId());
         response.setNomeProduto(itemPedido.getNomeProduto());
         response.setQuantidade(itemPedido.getQuantidade());
         response.setPrecoUnitario(itemPedido.getPrecoUnitario());
@@ -21,6 +23,14 @@ public class ItemPedidoResponse {
 
     public Long getId() {
         return id;
+    }
+
+    public Long getProdutoId() {
+        return produtoId;
+    }
+
+    public void setProdutoId(Long produtoId) {
+        this.produtoId = produtoId;
     }
 
     public void setId(Long id) {

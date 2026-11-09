@@ -18,6 +18,9 @@ public class ItemPedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /** Produto do catálogo (pode ser nulo em pedidos antigos). */
+    private Long produtoId;
+
     @Column(nullable = false)
     private String nomeProduto;
 
@@ -37,6 +40,14 @@ public class ItemPedido {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getProdutoId() {
+        return produtoId;
+    }
+
+    public void setProdutoId(Long produtoId) {
+        this.produtoId = produtoId;
     }
 
     public String getNomeProduto() {

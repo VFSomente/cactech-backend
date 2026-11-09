@@ -9,6 +9,9 @@ import java.math.BigDecimal;
 
 public class ItemPedidoRequest {
 
+    /** Opcional: id do produto no catálogo. */
+    private Long produtoId;
+
     @NotBlank(message = "Nome do produto e obrigatorio")
     private String nomeProduto;
 
@@ -19,6 +22,14 @@ public class ItemPedidoRequest {
     @NotNull(message = "Preco unitario e obrigatorio")
     @DecimalMin(value = "0.01", message = "Preco unitario deve ser maior que zero")
     private BigDecimal precoUnitario;
+
+    public Long getProdutoId() {
+        return produtoId;
+    }
+
+    public void setProdutoId(Long produtoId) {
+        this.produtoId = produtoId;
+    }
 
     public String getNomeProduto() {
         return nomeProduto;

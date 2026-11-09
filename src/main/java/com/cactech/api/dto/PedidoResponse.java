@@ -1,5 +1,6 @@
 package com.cactech.api.dto;
 
+import com.cactech.api.model.Pagamento;
 import com.cactech.api.model.Pedido;
 import com.cactech.api.model.PedidoStatus;
 
@@ -14,6 +15,24 @@ public class PedidoResponse {
     private BigDecimal total;
     private PedidoStatus status;
     private LocalDateTime dataCriacao;
+    /** Nulo enquanto nenhuma forma de pagamento foi escolhida. */
+    private PagamentoResumoResponse pagamento;
+
+    public static PedidoResponse fromEntity(Pedido pedido, Pagamento pagamento) {
+        PedidoResponse response = fromEntity(pedido);
+        if (pagamento != null) {
+            response.setPagamento(PagamentoResumoResponse.fromEntity(pagamento));
+        }
+        return response;
+    }
+
+    public PagamentoResumoResponse getPagamento() {
+        return pagamento;
+    }
+
+    public void setPagamento(PagamentoResumoResponse pagamento) {
+        this.pagamento = pagamento;
+    }
 
     public static PedidoResponse fromEntity(Pedido pedido) {
         PedidoResponse response = new PedidoResponse();
