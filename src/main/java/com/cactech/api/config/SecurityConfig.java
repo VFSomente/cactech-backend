@@ -4,6 +4,8 @@ import com.cactech.api.service.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -37,6 +39,8 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                // Sem login ou com token inválido/expirado: 401 (o front então pede novo login)
+                .exceptionHandling(ex -> ex.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/register", "/api/auth/login",
                                 "/api/auth/esqueci-senha", "/api/auth/redefinir-senha").permitAll()
