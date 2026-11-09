@@ -4,6 +4,9 @@ target/
 # Configuração local com credenciais (SMTP etc.) — nunca versionar
 application-local.yml
 
+# Arquivos enviados pelos usuários (fotos de perfil)
+uploads/
+
 # IDEs
 .idea/
 .vscode/
