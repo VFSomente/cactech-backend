@@ -14,5 +14,8 @@ public final class ApiMessages {
     public static final String TIPO_IMAGEM_NAO_SUPORTADO = "Tipo de imagem nao suportado. Utilize jpg, png, gif ou webp";
     public static final String ERRO_SALVAR_AVATAR = "Nao foi possivel salvar o avatar";
     public static final String PRODUTO_NAO_ENCONTRADO = "Produto nao encontrado";
+    public static final String LINK_REDEFINICAO_INVALIDO = "Link de redefinicao invalido ou expirado";
+    public static final String REDEFINICAO_SOLICITADA = "Se o e-mail estiver cadastrado, enviaremos um link para redefinir a senha";
+    public static final String SENHA_REDEFINIDA = "Senha redefinida com sucesso";
     public static final String DEPARTAMENTO_INVALIDO = "Departamento invalido. Use: computadores, kit-upgrade, hardware ou monitores";
 }

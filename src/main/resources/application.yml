@@ -23,3 +23,15 @@ jwt:
 app:
   upload:
     avatar-dir: uploads/avatars
+  # Endereço do site, usado nos links enviados por e-mail
+  frontend-url: http://localhost:4300
+  redefinicao-senha:
+    validade-minutos: 30
+  mail:
+    from: "CacTech <nao-responda@cactech.com.br>"
+
+# E-mail (SMTP): sem configuração, os links de redefinição de senha aparecem no log.
+# Para enviar de verdade, defina as variáveis de ambiente antes de iniciar, por exemplo (Gmail):
+#   SPRING_MAIL_HOST=smtp.gmail.com  SPRING_MAIL_PORT=587
+#   SPRING_MAIL_USERNAME=sua-conta@gmail.com  SPRING_MAIL_PASSWORD=<senha de app>
+#   SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH=true  SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE=true
